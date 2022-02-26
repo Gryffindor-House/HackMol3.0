@@ -11,9 +11,6 @@ export const Home = () => {
       <div className="flex">
         <Hero />
       </div>
-      <div className="flex">
-        <About />
-      </div>
       <Footer />
     </>
   );

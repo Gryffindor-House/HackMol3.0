@@ -8,11 +8,15 @@ import {
   useDisclosure,
   useColorModeValue,
   useColorMode,
+  Text,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { GiShipWreck } from 'react-icons/gi';
+import { GiTornado } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -31,7 +35,13 @@ export default function Nav() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>{<Icon as={GiShipWreck} w={20} h={20} p={'8px;'} />}</Box>
+          <Text
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            fontFamily={'heading'}
+            fontWeight={'bold'}
+            color={useColorModeValue('gray.800', 'white')}>
+            Disaster Spotter
+          </Text>
             <HStack
               as={'nav'}
               spacing={8}
@@ -43,7 +53,7 @@ export default function Nav() {
             <Flex alignItems={'center'}>
               <Button
                 variant={'solid'}
-                colorScheme={'green'}
+                colorScheme={'blue'}
                 size={'sm'}
                 mr={5}
                 onClick={() => {
