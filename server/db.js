@@ -52,11 +52,11 @@ async function fetch_shipwreck() {
 // Authenticate user
 function authenticate_user(params, callback) {
   connection.query(
-    "SELECT count(*) from users where user_name=? and password =?",
+    "SELECT count(*) from user where name=? and password =?",
     [params.user_name, params.password],
     (err, results, fields) => {
       if (err || results.length == 0) {
-        print(err);
+        console.log(err);
         return callback(false);
       }
       return callback(true);
@@ -67,11 +67,11 @@ function authenticate_user(params, callback) {
 // Register User
 function register_user(params, callback) {
   connection.query(
-    "INSERT into users (name,email_id,password) values (?,?,?)",
-    [params.name, params.email, params.password],
+    "INSERT into user (name,email_id,password) values (?,?,?)",
+    [params.name, params.email_id, params.password],
     (err, results, fields) => {
       if (err || results.length == 0) {
-        print(err);
+        console.log(err);
         return callback(false);
       }
       return callback(true);

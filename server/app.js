@@ -30,24 +30,20 @@ app.post("/fetch_shipwreck", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  try {
-    let val = await authenticate_user(req.body);
-    res.send(val);
-  } catch (e) {
-    res.send(false);
-  }
+  authenticate_user(req.body, (results) => {
+    res.send(results);
+  });
 });
+
 app.post("/signup", async (req, res) => {
-  try {
-    let params = {
-      name: req.body.first_name + " " + req.body.last_name,
-      email_id: req.body.email_id,
-      password: req.body.password,
-    };
-    res.send(await register_user(params));
-  } catch (e) {
-    return false;
-  }
+  let params = {
+    name: req.body.first_name + " " + req.body.last_name,
+    email_id: req.body.email_id,
+    password: req.body.password,
+  };
+  register_user(params, (results) => {
+    res.send(results);
+  });
 });
 
 app.post("/register_shipwreck", async (req, res) => {
