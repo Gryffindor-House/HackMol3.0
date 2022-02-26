@@ -1,53 +1,16 @@
+const ResponseLike = require("responselike");
 const connection = require("./config");
 
 // Fetching shipwrecks data
-async function fetch_shipwreck() {
-  try {
-    await client.connect();
-
-    // Connect the client to the server
-    //  Fetching Collection Data
-    let results = await client
-      .db("sample_geospatial")
-      .collection("shipwrecks")
-      .find({})
-      .toArray();
-    return results;
-  } catch (e) {
-    console.log(e);
-    return false;
-  } finally {
-    await client.close();
-  }
+function fetch_disasters(callback) {
+  connection.query("SELECT * from disasters", (err, results, fields) => {
+    if (err) {
+      return callback(false);
+    } else {
+      return callback(results);
+    }
+  });
 }
-
-// Update shipwreck data
-
-// Delete shipwreck data
-// async function delete_shipwreck() {
-//   try {
-//     // Connect the client to the server
-
-//     //  Fetching Collection Data
-//     let results = await client
-//       .db("sample_geospatial")
-//       .collection("shipwrecks")
-//       .deleteOne({ depth: { $gte: 10 } })
-//       .then(function () {
-//         console.log("Data Deleted");
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//       });
-
-//     return results;
-//   } catch (e) {
-//     console.log(e);
-//     return false;
-//   } finally {
-//     await client.close();
-//   }
-// }
 
 // Authenticate user
 function authenticate_user(params, callback) {
@@ -109,8 +72,7 @@ async function register_shipwreck(params) {
 }
 
 module.exports = {
-  fetch_shipwreck: fetch_shipwreck,
-  // delete_shipwreck: delete_shipwreck,
+  fetch_disasters: fetch_disasters,
   authenticate_user: authenticate_user,
   register_user: register_user,
   register_shipwreck: register_shipwreck,

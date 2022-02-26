@@ -1,10 +1,11 @@
 const express = require("express");
 const {
-  fetch_shipwreck,
   authenticate_user,
   register_user,
   register_shipwreck,
+  fetch_disasters,
 } = require("./db");
+
 const app = express();
 var bodyParser = require("body-parser");
 var cors = require("cors");
@@ -23,10 +24,10 @@ app.all("/*", function (req, res, next) {
   next();
 });
 
-app.post("/fetch_shipwreck", async (req, res) => {
-  let results = await fetch_shipwreck();
-  // console.log(results);
-  res.send(results);
+app.post("/fetch_disasters", async (req, res) => {
+  fetch_disasters((results) => {
+    res.send(results);
+  });
 });
 
 app.post("/login", async (req, res) => {
