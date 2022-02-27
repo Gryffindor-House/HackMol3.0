@@ -24,7 +24,7 @@ export class GoogleMap extends Component {
   }
 
   componentDidMount() {
-    axios.post(server_URL + 'fetch_shipwreck').then(results => {
+    axios.post(server_URL + 'fetch_disasters').then(results => {
       this.setState({ markers: results.data });
     });
   }
@@ -46,8 +46,8 @@ export class GoogleMap extends Component {
               <Marker
                 key={marker._id}
                 position={{
-                  lat: marker.latdec,
-                  lng: marker.londec,
+                  lat: marker.Latitude,
+                  lng: marker.Longitude,
                 }}
               ></Marker>
             );

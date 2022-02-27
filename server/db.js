@@ -44,7 +44,7 @@ function register_user(params, callback) {
 
 // Add shipwreck data
 // Register User
-async function register_shipwreck(params) {
+async function register_disaster(params) {
   try {
     // Connect the client to the server
     await client.connect();
@@ -75,5 +75,5 @@ module.exports = {
   fetch_disasters: fetch_disasters,
   authenticate_user: authenticate_user,
   register_user: register_user,
-  register_shipwreck: register_shipwreck,
+  register_disaster: register_disaster,
 };

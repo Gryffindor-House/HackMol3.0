@@ -26,6 +26,7 @@ app.all("/*", function (req, res, next) {
 
 app.post("/fetch_disasters", async (req, res) => {
   fetch_disasters((results) => {
+    console.log(results);
     res.send(results);
   });
 });
