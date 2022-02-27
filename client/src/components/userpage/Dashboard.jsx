@@ -6,6 +6,8 @@ import Navbar from './navbar';
 import GoogleMap from './map';
 import Footer from './footer';
 import Slider from './Carousel';
+import Image from './Imageprocess';
+import Imagep from './Imageprocess';
 
 const slideData = [
   {
@@ -39,6 +41,7 @@ export const Dashboard = () => {
     <>
       <Navbar />
       <Grid>
+        <Imagep />
         <GridItem colStart={1} colEnd={2} p={'40px'}>
           <GoogleMap />
         </GridItem>
