@@ -1,57 +1,173 @@
-import React from 'react';
+import React from "react";
 
-export default function Carousel() {
-  return (
-    <div>
-      <div class="container">
-        <input type="radio" name="slider" id="item-1" checked />
-        <input type="radio" name="slider" id="item-2" />
-        <input type="radio" name="slider" id="item-3" />
-        <div class="cards">
-          <label class="card" for="item-1" id="song-1">
-            <img
-              src="https://images.newscientist.com/wp-content/uploads/2011/03/dn20253-1_300.jpg?width=1200&enable=upscale"
-              alt="song"
+  export default class Carousel extends React.Component {
+    constructor(props) {
+      super(props)
+  
+      this.handleMouseMove = this.handleMouseMove.bind(this)
+      this.handleMouseLeave = this.handleMouseLeave.bind(this)
+      this.handleSlideClick = this.handleSlideClick.bind(this)
+      this.imageLoaded = this.imageLoaded.bind(this)
+      this.slide = React.createRef()
+    }
+    
+    handleMouseMove(event) {
+      const el = this.slide.current
+      const r = el.getBoundingClientRect()
+  
+      el.style.setProperty('--x', event.clientX - (r.left + Math.floor(r.width / 2)))
+      el.style.setProperty('--y', event.clientY - (r.top + Math.floor(r.height / 2)))
+    }
+    
+    handleMouseLeave(event) {    
+      this.slide.current.style.setProperty('--x', 0)
+      this.slide.current.style.setProperty('--y', 0)
+    }
+    
+    handleSlideClick(event) {
+      this.props.handleSlideClick(this.props.slide.index)
+    }
+    
+    imageLoaded(event) {
+      event.target.style.opacity = 1
+    }
+    
+    render() {
+      const { src, button, headline, index } = this.props.slide
+      const current = this.props.current
+      let classNames = 'slide'
+      
+      if (current === index) classNames += ' slide--current'
+      else if (current - 1 === index) classNames += ' slide--previous'
+      else if (current + 1 === index) classNames += ' slide--next'
+          
+      return (
+        <li 
+          ref={this.slide}
+          className={classNames} 
+          onClick={this.handleSlideClick}
+          onMouseMove={this.handleMouseMove}
+          onMouseLeave={this.handleMouseLeave}
+        >
+          <div className="slide__image-wrapper">
+            <img 
+              className="slide__image"
+              alt={headline}
+              src={src}
+              onLoad={this.imageLoaded}
             />
-          </label>
-          <label class="card" for="item-2" id="song-2">
-            <img
-              src="https://images.newindianexpress.com/uploads/user/imagelibrary/2020/6/30/w900X450/floods.jpg?w=400&dpr=2.6"
-              alt="song"
+          </div>
+          
+          <article className="slide__content">
+            <h2 className="slide__headline">{headline}</h2>
+            <button className="slide__action btn">{button}</button>
+          </article>
+        </li>
+      )
+    }
+  }
+  
+  
+  // =========================
+  // Slider control
+  // =========================
+  
+  const SliderControl = ({ type, title, handleClick }) => {
+    return (
+      <button className={`btn btn--${type}`} title={title} onClick={handleClick}>
+        <svg className="icon" viewBox="0 0 24 24">
+          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+      </button>
+    )
+  }
+  
+  
+  // =========================
+  // Slider
+  // =========================
+  
+  class Slider extends React.Component {
+    constructor(props) {
+      super(props)
+      
+      this.state = { current: 0 }
+      this.handlePreviousClick = this.handlePreviousClick.bind(this)
+      this.handleNextClick = this.handleNextClick.bind(this)
+      this.handleSlideClick = this.handleSlideClick.bind(this)
+    }
+    
+    handlePreviousClick() {
+      const previous = this.state.current - 1
+          
+      this.setState({ 
+        current: (previous < 0) 
+          ? this.props.slides.length - 1
+          : previous
+      })
+    }
+    
+    handleNextClick() {
+      const next = this.state.current + 1;
+      
+      this.setState({ 
+        current: (next === this.props.slides.length) 
+          ? 0
+          : next
+      })
+    }
+    
+    handleSlideClick(index) {
+      if (this.state.current !== index) {
+        this.setState({
+          current: index
+        })
+      }
+    }
+  
+    render() {
+      const { current, direction } = this.state
+      const { slides, heading } = this.props 
+      const headingId = `slider-heading__${heading.replace(/\s+/g, '-').toLowerCase()}`
+      const wrapperTransform = {
+        'transform': `translateX(-${current * (100 / slides.length)}%)`
+      }
+      
+      return (
+        <div className='slider' aria-labelledby={headingId}>
+          <ul className="slider__wrapper" style={wrapperTransform}>
+            <h3 id={headingId} class="visuallyhidden">{heading}</h3>
+            
+            {slides.map(slide => {
+              return (
+                <Carousel
+                  key={slide.index}
+                  slide={slide}
+                  current={current}
+                  handleSlideClick={this.handleSlideClick}
+                />
+              )
+            })}
+          </ul>
+          
+          <div className="slider__controls">
+            <SliderControl 
+              type="previous"
+              title="Go to previous slide"
+              handleClick={this.handlePreviousClick}
             />
-          </label>
-          <label class="card" for="item-3" id="song-3">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNc7CQHtJ1ahPzLVdI1LdPuCE1f1QyKr6rLw&usqp=CAU"
-              alt="song"
+            
+            <SliderControl 
+              type="next"
+              title="Go to next slide"
+              handleClick={this.handleNextClick}
             />
-          </label>
-        </div>
-      </div>
-      <div class="player">
-        <div class="upper-part">
-          <div class="info-area" id="test">
-            <label class="song-info" id="song-info-1">
-              <div class="title">Tsunami</div>
-              <div class="sub-line">
-                <div class="subtitle">No alerts </div>
-              </div>
-            </label>
-            <label class="song-info" id="song-info-2">
-              <div class="title">Floods</div>
-              <div class="sub-line">
-                <div class="subtitle">No alerts </div>
-              </div>
-            </label>
-            <label class="song-info" id="song-info-3">
-              <div class="title">Storm</div>
-              <div class="sub-line">
-                <div class="subtitle">No alerts </div>
-              </div>
-            </label>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
+      )
+    }
+  }
+  
+  
+  
+      
