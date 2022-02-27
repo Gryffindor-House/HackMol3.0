@@ -16,7 +16,7 @@ Tech Stack used is
  Team details
 - Team Code : asdajsad62562
 - Team Name : Gryffindor
-- IsFresher: True/False
+- IsFresher: False
 
 ---
 ### Description of Idea
