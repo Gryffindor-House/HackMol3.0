@@ -94,9 +94,9 @@ export default class Imagep extends Component {
               </Text>
             </Heading>
             <Text color={'gray.500'}>
-              This feature uses an ML model that takes input as a satellite
-              image and classifies the damage done in the area if any damage is
-              done or not.
+              This feature uses a sophisticated ML model that takes input as a
+              satellite image and classifies the damage done in the area if any
+              damage is done or not.
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
