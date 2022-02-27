@@ -8,6 +8,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import theme from './config/fonts/font';
+import './style.css';
 
 ReactDOM.render(
   <React.StrictMode>

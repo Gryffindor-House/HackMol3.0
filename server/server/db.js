@@ -1,4 +1,3 @@
-const ResponseLike = require("responselike");
 const connection = require("./config");
 
 // Fetching disaster data
