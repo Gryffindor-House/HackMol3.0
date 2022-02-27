@@ -83,15 +83,15 @@ export default function LoginForm() {
             alt={'Login Image'}
             objectFit={'cover'}
             src={
-              'https://c4.wallpaperflare.com/wallpaper/275/684/26/environment-underwater-ship-fish-shipwreck-hd-wallpaper-preview.jpg'
+              'https://wallpaperaccess.com/full/1231662.jpg'
             }
           />
         </Flex>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={7} w={'full'} maxW={'md'}>
-            <Heading fontSize="38px">Sign in to your account</Heading>
+            <Heading fontSize="38px">Login to our page</Heading>
             <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Email ID</FormLabel>
               <Input
                 type="email"
                 value={login_form.email_id}
@@ -148,7 +148,7 @@ export default function LoginForm() {
               </Button>
 
               <Button
-                colorScheme={'green'}
+                colorScheme={'red'}
                 variant={'solid'}
                 onClick={() => {
                   navigate('/signup');
