@@ -1,62 +1,29 @@
-import React from 'react';
-import { Grid, GridItem, Flex } from '@chakra-ui/react';
 import React, { Component } from 'react';
+import { Grid, GridItem, Flex } from '@chakra-ui/react';
 
 import Wreckinfo from './wreckinfo';
 import Navbar from './navbar';
 import GoogleMap from './map';
 import Footer from './footer';
-import Slider from './Carousel';
-
-const slideData = [
-  {
-    index: 0,
-    headline: 'New Fashion Apparel',
-    button: 'Shop now',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/fashion.jpg',
-  },
-  {
-    index: 1,
-    headline: 'In The Wilderness',
-    button: 'Book travel',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/forest.jpg',
-  },
-  {
-    index: 2,
-    headline: 'For Your Current Mood',
-    button: 'Listen',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg',
-  },
-  {
-    index: 3,
-    headline: 'Focus On The Writing',
-    button: 'Get Focused',
-    src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg',
-  },
-];
+import Imagep from './Imageprocess';
 
 export const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <Grid>
+      <Imagep />
+      <Grid
+        style={{
+          marginTop: '50px',
+        }}
+      >
         <GridItem colStart={1} colEnd={2} p={'40px'}>
           <GoogleMap />
         </GridItem>
-        <GridItem colStart={1} colEnd={2} mt={'-80px'}>
+        <GridItem colStart={1} colEnd={2} mt={'-90px'} pr={'40px'}>
           <Wreckinfo />
         </GridItem>
       </Grid>
-      <Flex
-        style={{
-          position: 'absolute',
-          marginTop: '900px',
-          marginLeft: '1px',
-        }}
-        className="flex"
-      >
-        <Footer />
-      </Flex>
     </>
   );
 };

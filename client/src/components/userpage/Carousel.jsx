@@ -4,7 +4,7 @@ import React from 'react';
 // Slide
 // =========================
 
-class Slide extends React.Component {
+class Slider extends React.Component {
   constructor(props) {
     super(props);
 
@@ -95,7 +95,7 @@ const SliderControl = ({ type, title, handleClick }) => {
 // Slider
 // =========================
 
-class Slider extends React.Component {
+class Slider1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -148,7 +148,7 @@ class Slider extends React.Component {
 
           {slides.map(slide => {
             return (
-              <Slide
+              <Slider
                 key={slide.index}
                 slide={slide}
                 current={current}

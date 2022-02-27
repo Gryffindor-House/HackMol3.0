@@ -2,13 +2,20 @@ import {
   Box,
   chakra,
   Container,
+  Link,
   Stack,
   Text,
   useColorModeValue,
   VisuallyHidden,
+  Icon,
 } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
+import { GiTornado } from 'react-icons/gi';
+
+const Logo = (props: any) => {
+  return <Box>{<Icon as={GiTornado} w={16} h={16} p={'7px;'} />}</Box>;
+};
 
 const SocialButton = ({
   children,
@@ -42,41 +49,32 @@ const SocialButton = ({
   );
 };
 
-export default function Footer() {
+export default function SmallWithLogoLeft() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      w={'1510px'}
     >
       <Container
         as={Stack}
-        maxW={'6xl'}
-        py={4}
+        maxW={'7xl'}
+        py={1}
         direction={{ base: 'column', md: 'row' }}
         spacing={4}
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}
       >
+        <Logo />
         <Text>© 2022 Team Gryffindor</Text>
         <Stack direction={'row'} spacing={6}>
-          <SocialButton
-            label={'Github'}
-            href={'https://github.com/Gryffindor-House'}
-          >
-            <FaGithub />
+          <SocialButton label={'Twitter'} href={'#'}>
+            <FaTwitter />
           </SocialButton>
-          <SocialButton
-            label={'Linkedin'}
-            href={'https://www.linkedin.com/in/neeraj-s-658758192/'}
-          >
-            <FaLinkedin />
-          </SocialButton>
-          <SocialButton
-            label={'Youtubr'}
-            href={'https://www.youtube.com/watch?v=N4_kl9Q8mmo'}
-          >
+          <SocialButton label={'YouTube'} href={'#'}>
             <FaYoutube />
+          </SocialButton>
+          <SocialButton label={'Instagram'} href={'#'}>
+            <FaInstagram />
           </SocialButton>
         </Stack>
       </Container>
