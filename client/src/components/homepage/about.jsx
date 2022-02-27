@@ -1,6 +1,13 @@
 import { ReactElement } from 'react';
 import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
-import { FcViewDetails,FcMindMap,FcSurvey,FcMultipleCameras,FcOnlineSupport,FcFaq} from 'react-icons/fc';
+import {
+  FcViewDetails,
+  FcMindMap,
+  FcSurvey,
+  FcMultipleCameras,
+  FcOnlineSupport,
+  FcFaq,
+} from 'react-icons/fc';
 
 interface FeatureProps {
   title: string;
@@ -19,7 +26,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
         color={'white'}
         rounded={'full'}
         bg={'gray.100'}
-        mb={1}>
+        mb={1}
+      >
         {icon}
       </Flex>
       <Text fontWeight={600}>{title}</Text>
@@ -32,7 +40,7 @@ export default function About() {
   return (
     <Box p={4}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-      <Feature
+        <Feature
           icon={<Icon as={FcViewDetails} w={10} h={10} />}
           title={'Comprehensive Dashboard'}
           text={
@@ -54,7 +62,7 @@ export default function About() {
           }
         />
         <Feature
-         icon={<Icon as={FcMultipleCameras} w={10} h={10} />}
+          icon={<Icon as={FcMultipleCameras} w={10} h={10} />}
           title={'Satellite Image Processing'}
           text={
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
@@ -64,7 +72,7 @@ export default function About() {
           icon={<Icon as={FcOnlineSupport} w={10} h={10} />}
           title={'Chat Bot'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            'For our chatbot, we used Alan AI, which is a complete voice AI platform. It increases app adoption through voice onboarding. It provides a personalized voice experience for every user.  The chatterbot can respond to SOS messages and also questions with respect to calamities.'
           }
         />
         <Feature
@@ -74,7 +82,6 @@ export default function About() {
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
           }
         />
-        
       </SimpleGrid>
     </Box>
   );
