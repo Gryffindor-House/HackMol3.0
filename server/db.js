@@ -3,7 +3,7 @@ const connection = require("./config");
 
 // Fetching shipwrecks data
 function fetch_disasters(callback) {
-  connection.query("SELECT * from disasters", (err, results, fields) => {
+  connection.query("SELECT * from disaster_map", (err, results, fields) => {
     if (err) {
       return callback(false);
     } else {
