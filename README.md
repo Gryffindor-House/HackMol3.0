@@ -5,14 +5,17 @@
 </div>
 
 Tech Stack used is 
-- Javascript
+- MySQL
 - Python
-- BrainF****
+- NodeJS
+- ReactJS
+- Tensorflow
+
 
 ---
  Team details
 - Team Code : asdajsad62562
-- Team Name : d56dasasd
+- Team Name : Gryffindor
 - IsFresher: True/False
 
 ---
