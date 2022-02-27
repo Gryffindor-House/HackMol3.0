@@ -2,6 +2,7 @@
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/logo.png" alt="Logo" width="150" height="80">
   </a>
+</div>
 
 Tech Stack used is 
 - Javascript
