@@ -2,7 +2,7 @@ const express = require("express");
 const {
   authenticate_user,
   register_user,
-  register_shipwreck,
+  register_disaster,
   fetch_disasters,
 } = require("./db");
 
@@ -48,13 +48,10 @@ app.post("/signup", async (req, res) => {
   });
 });
 
-app.post("/register_shipwreck", async (req, res) => {
-  try {
-    // console.log(req.body);
-    res.send(await register_shipwreck(req.body));
-  } catch (e) {
-    return false;
-  }
+app.post("/register_disaster", (req, res) => {
+  register_disaster(req.body, (results) => {
+    res.send(results);
+  });
 });
 
 const PORT = process.env.PORT || 5000;

@@ -43,31 +43,17 @@ function register_user(params, callback) {
 }
 
 // Register User
-async function register_disaster(params) {
-  try {
-    // Connect the client to the server
-    await client.connect();
-
-    params["coordinates"] = Array(
-      parseFloat(params.londec),
-      parseFloat(params.latdec)
-    );
-
-    //  Fetching Collection Data
-    let results = await client
-      .db("sample_geospatial")
-      .collection("shipwrecks")
-      .insertOne(params);
-
-    console.log(results);
-
-    return results.acknowledged;
-  } catch (e) {
-    console.log(e);
-    return false;
-  } finally {
-    await client.close();
-  }
+function register_disaster(params, callback) {
+  connection.query(
+    "INSERT INTO disaster_map(Description,Latitude,Longitude,Type) value (?,?,?,?)",
+    [params.description, params.latdec, params.londec, params.type],
+    (err, results, fields) => {
+      if (err) {
+        return callback(false);
+      }
+      return callback(true);
+    }
+  );
 }
 
 module.exports = {
