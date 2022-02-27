@@ -31,6 +31,10 @@ app.post("/fetch_disasters", async (req, res) => {
   });
 });
 
+app.post("/find_predictions", async (req, res) => {
+  res.send("DAMAGE PRESENT");
+});
+
 app.post("/login", async (req, res) => {
   authenticate_user(req.body, (results) => {
     res.send(results);

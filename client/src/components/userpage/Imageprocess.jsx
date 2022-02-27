@@ -14,6 +14,8 @@ import {
 } from '@chakra-ui/react';
 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { server_URL } from '../../config/urls';
 
 export default class Imagep extends Component {
   constructor(props) {
@@ -25,6 +27,17 @@ export default class Imagep extends Component {
     this.upload = this.upload.bind(this);
   }
 
+  closePopUp() {
+    this.setState({ animation_name: 'animate-out' });
+    this.setState({ depth: 'above' });
+    this.setState({ fade: 'fade-out' });
+  }
+  openPopUp() {
+    this.setState({ animation_name: 'animate-in' });
+    this.setState({ depth: 'below' });
+    this.setState({ fade: 'fade-in' });
+  }
+
   uploadSingleFile(e) {
     this.setState({
       file: URL.createObjectURL(e.target.files[0]),
@@ -33,9 +46,7 @@ export default class Imagep extends Component {
 
   upload() {
     const formData = { image: this.state.file };
-
-    let url = 'http://localhost:8000/upload.php';
-    axios.post(url, formData, {}).then(res => {
+    axios.post(server_URL + 'find_predictions').then(res => {
       console.warn(res.data);
     });
   }
