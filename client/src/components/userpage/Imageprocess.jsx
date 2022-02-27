@@ -85,17 +85,15 @@ export default class Imagep extends Component {
                   zIndex: -1,
                 }}
               >
-                Write once,
+                Satellite
               </Text>
               <br />
               <Text as={'span'} color={'red.400'}>
-                use everywhere!
+                Image Processing
               </Text>
             </Heading>
             <Text color={'gray.500'}>
-              Snippy is a rich coding snippets app that lets you create your own
-              code snippets, categorize them, and even sync them in the cloud so
-              you can use them anywhere. All that is free!
+            This feature uses an ML model that takes input as a satellite image and classifies the damage done in the area if any damage is done or not.
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
@@ -116,11 +114,19 @@ export default class Imagep extends Component {
               </Button>
 
               <div className="form-group">
+              <Button
+              rounded={'full'}
+              size={'lg'}
+              fontWeight={'normal'}
+              px={6}
+                onClick={this.upload}
+              >
                 <input
                   type="file"
                   className="form-control"
                   onChange={this.uploadSingleFile}
                 />
+                </Button>
               </div>
             </Stack>
           </Stack>
