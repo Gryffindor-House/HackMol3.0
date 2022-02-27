@@ -156,7 +156,7 @@ export default function Wreckinfo(): JSX.Element {
         </FormControl>
 
         <Stack spacing={6} direction={['column', 'row']}>
-        <Button
+          <Button
             bg={'blue.400'}
             color={'white'}
             w="full"
