@@ -3,8 +3,6 @@
     <img src="https://github.com/Gryffindor-House/Innovate-with-MongoDB/blob/Innovate-Chakra/images/logo.png" alt="Logo" width="150" height="80">
   </a>
 
-  <h3 align="center">Wreck-IT</h3>
-
 Tech Stack used is 
 - Javascript
 - Python
