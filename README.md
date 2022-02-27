@@ -24,11 +24,15 @@ Tech Stack used is
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate laoreet odio vulputate aliquet. Nullam in sollicitudin mi. Nulla ipsum ex, pulvinar sed dolor non, sagittis accumsan eros. Morbi maximus tincidunt condimentum. Praesent id magna in augue elementum ullamcorper. Duis dignissim feugiat nibh, non tristique ante bibendum non. Vestibulum pulvinar velit et velit vestibulum, ut aliquam massa luctus. Mauris eu erat porttitor, consequat sapien eget, commodo nulla. Curabitur lacinia lobortis venenatis. Curabitur ultrices risus vitae lectus varius, ut dapibus purus placerat. In eget bibendum libero. Pellentesque vestibulum ac felis interdum blandit. Pellentesque tempus mauris tristique purus ornare vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
 ---
-### Images
+### Screenshots
 
-![image](https://user-images.githubusercontent.com/64721638/155871181-92f700d8-f0d5-4ea6-9f23-ad991d4d82f3.png)
+![image](https://github.com/Gryffindor-House/HackMol3.0/blob/main/images/1.PNG)
 
-![image](https://user-images.githubusercontent.com/64721638/155871198-1f3fba16-d0f0-4acb-9e7d-bcc832cdf52e.png)
+![image](https://github.com/Gryffindor-House/HackMol3.0/blob/main/images/2.PNG)
+
+![image](https://github.com/Gryffindor-House/HackMol3.0/blob/main/images/3.PNG)
+
+![image](https://github.com/Gryffindor-House/HackMol3.0/blob/main/images/4.PNG)
 
 ---
 Video link/embed
