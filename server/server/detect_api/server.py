@@ -9,10 +9,8 @@ app = Flask(__name__)
 # API that returns JSON with classes found in images
 @app.route('/detect', methods=['POST'])
 def get_detections():
-    try:
+    if(request.method == 'POST'):
         return jsonify({"response":"Damage"}), 200
-    except FileNotFoundError:
-        abort(404)
 
 if __name__ == '__main__':
     app.run(debug=True)

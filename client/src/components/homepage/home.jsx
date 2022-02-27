@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from './hero';
 import Nav from './nav';
-import About from './about';
 import Footer from './footer';
 
 import alanBtn from '@alan-ai/alan-sdk-web';
