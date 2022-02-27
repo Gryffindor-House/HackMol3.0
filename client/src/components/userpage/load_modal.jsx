@@ -10,6 +10,7 @@ import {
   ModalCloseButton,
   Center,
 } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 
 export default function VerticallyCenter() {
@@ -36,7 +37,10 @@ export default function VerticallyCenter() {
         <ModalContent>
           <ModalHeader style={{ textAlign: 'center' }}>RESULT</ModalHeader>
           <ModalCloseButton />
-          <ModalBody style={{ textAlign: 'center' }}>Damage Present</ModalBody>
+          <ModalBody style={{ textAlign: 'center' }}>
+            <Text>Damage Present</Text>
+            <Text>Category 4</Text>
+          </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
           </ModalFooter>
