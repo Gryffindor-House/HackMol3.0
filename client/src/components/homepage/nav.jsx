@@ -40,7 +40,7 @@ export default function Nav() {
             fontFamily={'heading'}
             fontWeight={'bold'}
             color={useColorModeValue('gray.800', 'white')}>
-            Disaster Spotter
+            DSA
           </Text>
             <HStack
               as={'nav'}

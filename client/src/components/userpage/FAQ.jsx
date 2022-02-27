@@ -13,7 +13,7 @@ import { CheckIcon } from '@chakra-ui/icons';
 
 
 const features = [{id: 1, title:"Who are we?" , text:"We are Team Gryffindor, a group of students based out of Chennai"},
-{id: 2, title:"What is this about?" , text:"We have designed a portal for spotting and plotting disasters around the world with provision to add your own disaster site!"},
+{id: 2, title:"What is this about?" , text:"DSA or Disaster Alert is a portal for spotting and plotting disasters around the world with provision to add your own disaster site!"},
 {id: 3, title:"What disasters are we talking about here?" , text:"Disasters such as Tsunami, Storm, Floods in the Indian Subcontinent can be spotted and added so far."},
 {id: 4, title:"What is the Satellite Image identifier?" , text:"By providing a satellite image of the hurricane damage site, we can accurately provide information as to how much damage has been incurred. "},
 {id: 5, title:"How do I add my own disaster data?" , text:"After logging in to our Dashboard, you can fill up our disaster info form and add to our database."},

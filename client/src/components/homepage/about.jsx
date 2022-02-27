@@ -30,8 +30,8 @@ const Feature = ({ title, text, icon }: FeatureProps) => {
       >
         {icon}
       </Flex>
-      <Text fontWeight={600}>{title}</Text>
-      <Text color={'gray.600'}>{text}</Text>
+      <Text fontWeight={1000}>{title}</Text>
+      <Text color={'white.200'}>{text}</Text>
     </Stack>
   );
 };
@@ -40,7 +40,7 @@ export default function About() {
   return (
     <Box p={4}>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-        <Feature
+        <Feature 
           icon={<Icon as={FcViewDetails} w={10} h={10} />}
           title={'Comprehensive Dashboard'}
           text={
@@ -50,7 +50,7 @@ export default function About() {
         <Feature
           icon={<Icon as={FcMindMap} w={10} h={10} />}
           title={'Disaster Map'}
-          text={
+          text={ 
             "The disaster map is a web mapping platform and consumer application that offers satellite imagery, aerial photography and street maps. It features real time conditions of your location if there's any calamity happening and features different icons stating the nature of the calamity"
           }
         />

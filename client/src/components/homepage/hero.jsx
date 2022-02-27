@@ -46,7 +46,7 @@ export default function Hero() {
               Disaster Alert!
             </Text>{' '}
           </Heading>
-          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'white.500'}>
           Disasters are serious disruptions to the functioning of a community but how do we spot and plot them? Click on the Learn More button to find out more!
           </Text>
           
