@@ -44,28 +44,28 @@ export default function About() {
           icon={<Icon as={FcViewDetails} w={10} h={10} />}
           title={'Comprehensive Dashboard'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            'This dashboard contains most of the features of the web application like the disaster map, The Satellite Image Processor and the disaster info form. Details about them are given in the respective fields.'
           }
         />
         <Feature
           icon={<Icon as={FcMindMap} w={10} h={10} />}
           title={'Disaster Map'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            "The disaster map is a web mapping platform and consumer application that offers satellite imagery, aerial photography and street maps. It features real time conditions of your location if there's any calamity happening and features different icons stating the nature of the calamity"
           }
         />
         <Feature
           icon={<Icon as={FcSurvey} w={10} h={10} />}
           title={'Disaster Info Form'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            'This is a form containing the coordinates of the areas affected by the calamities. It also has the option of the user adding the coordinates in areas if the web application  has missed anything which will be added promptly to the database.'
           }
         />
         <Feature
           icon={<Icon as={FcMultipleCameras} w={10} h={10} />}
           title={'Satellite Image Processing'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            'For this feature, we used an ML model that takes input as a satellite image and classifies the damage done in the area if any damage is done or not.'
           }
         />
         <Feature
@@ -79,7 +79,7 @@ export default function About() {
           icon={<Icon as={FcFaq} w={10} h={10} />}
           title={'FAQ Page'}
           text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+            'The FAQ section has detailed guidelines on how to use the different features provided in this web application. Users will get instructions on how to access the satellite image processor, what the various icons on the disaster map means and what the disaster form is'
           }
         />
       </SimpleGrid>
