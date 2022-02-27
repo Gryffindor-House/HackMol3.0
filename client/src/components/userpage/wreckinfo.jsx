@@ -8,6 +8,7 @@ import {
   Stack,
   useColorModeValue,
   useToast,
+  Select
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -92,7 +93,7 @@ export default function Wreckinfo(): JSX.Element {
         my={12}
       >
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
-          Wreck Info Form
+          Disaster Info Form
         </Heading>
         <FormControl id="Name" isRequired>
           <FormLabel>Name:</FormLabel>
@@ -102,12 +103,27 @@ export default function Wreckinfo(): JSX.Element {
             type="text"
           />
         </FormControl>
-        <FormControl id="Location" isRequired>
-          <FormLabel>Location:</FormLabel>
+        <FormControl id="Disaster Type" isRequired>
+          <FormLabel>Disaster Type:</FormLabel>
+          <Select>
+          <option value='option1'>Tsunami</option>
+          <option value='option2'>Storm</option>
+          <option value='option3'>Floods</option>
+          <option value='option3'>Landslide</option>
+          </Select>
+        </FormControl>
+        <FormControl id="Description of Disaster Site" isRequired>
+          <FormLabel>Description:</FormLabel>
           <Input
-            placeholder="Enter Location"
+            placeholder="ex: Ravaged/Flooded "
             _placeholder={{ color: 'gray.500' }}
             type="text"
+            onChange={e =>
+              setwreckform({
+                ...wreckform,
+                feature_type: e.target.value,
+              })
+            }
           />
         </FormControl>
         <FormControl id="Latitude" isRequired>
@@ -138,62 +154,7 @@ export default function Wreckinfo(): JSX.Element {
             }
           />
         </FormControl>
-        <FormControl id="Wreckage Type" isRequired>
-          <FormLabel>Wreckage Type:</FormLabel>
-          <Input
-            placeholder="ex: Broken/Visible"
-            _placeholder={{ color: 'gray.500' }}
-            type="text"
-            onChange={e =>
-              setwreckform({
-                ...wreckform,
-                feature_type: e.target.value,
-              })
-            }
-          />
-        </FormControl>
-        <FormControl id="History" isRequired>
-          <FormLabel>History:</FormLabel>
-          <Input
-            placeholder="Related History"
-            _placeholder={{ color: 'gray.500' }}
-            type="text"
-            onChange={e =>
-              setwreckform({
-                ...wreckform,
-                history: e.target.value,
-              })
-            }
-          />
-        </FormControl>
-        <FormControl id="Depth" isRequired>
-          <FormLabel>Depth:</FormLabel>
-          <Input
-            placeholder="Depth of Wreck"
-            _placeholder={{ color: 'gray.500' }}
-            type="text"
-            onChange={e =>
-              setwreckform({
-                ...wreckform,
-                depth: e.target.value,
-              })
-            }
-          />
-        </FormControl>
-        <FormControl id="Water Level" isRequired>
-          <FormLabel>Water Level:</FormLabel>
-          <Input
-            placeholder="Water Level near wreck"
-            _placeholder={{ color: 'gray.500' }}
-            type="text"
-            onChange={e =>
-              setwreckform({
-                ...wreckform,
-                watlev: e.target.value,
-              })
-            }
-          />
-        </FormControl>
+
         <Stack spacing={6} direction={['column', 'row']}>
         <Button
             bg={'blue.400'}
