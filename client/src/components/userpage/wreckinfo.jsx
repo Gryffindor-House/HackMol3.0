@@ -15,6 +15,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { server_URL } from '../../config/urls';
 
+
 export default function Wreckinfo(): JSX.Element {
   const [error, seterror] = useState(false);
   const navigate = useNavigate();
