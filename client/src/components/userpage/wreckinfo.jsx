@@ -8,7 +8,7 @@ import {
   Stack,
   useColorModeValue,
   useToast,
-  Select
+  Select,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -21,13 +21,11 @@ export default function Wreckinfo(): JSX.Element {
   const navigate = useNavigate();
   const toast = useToast();
 
-  const [wreckform, setwreckform] = useState({
+  const [disasterform, setdisasterform] = useState({
     latdec: '',
     londec: '',
-    depth: '',
-    feature_type: '',
-    history: '',
-    watlev: '',
+    type: '',
+    description: '',
   });
 
   const params = new URLSearchParams();
@@ -35,22 +33,18 @@ export default function Wreckinfo(): JSX.Element {
   const delete_details = () => {
     params.delete('latdec');
     params.delete('londec');
-    params.delete('depth');
-    params.delete('feature_type');
-    params.delete('history');
-    params.delete('watlev');
+    params.delete('type');
+    params.delete('description');
   };
 
   const handlewreck = () => {
     delete_details();
-    params.append('latdec', parseFloat(wreckform.latdec));
-    params.append('londec', parseFloat(wreckform.londec));
-    params.append('depth', parseInt(wreckform.depth));
-    params.append('feature_type', wreckform.feature_type);
-    params.append('history', wreckform.history);
-    params.append('watlev', wreckform.watlev);
+    params.append('latdec', parseFloat(disasterform.latdec));
+    params.append('londec', parseFloat(disasterform.londec));
+    params.append('type', parseFloat(disasterform.type));
+    params.append('description', parseFloat(disasterform.description));
 
-    axios.post(server_URL + 'register_shipwreck', params).then(res => {
+    axios.post(server_URL + 'register_disaster', params).then(res => {
       if (res.data === true) {
         seterror(false);
       } else {
@@ -106,11 +100,18 @@ export default function Wreckinfo(): JSX.Element {
         </FormControl>
         <FormControl id="Disaster Type" isRequired>
           <FormLabel>Disaster Type:</FormLabel>
-          <Select>
-          <option value='option1'>Tsunami</option>
-          <option value='option2'>Storm</option>
-          <option value='option3'>Floods</option>
-          <option value='option3'>Landslide</option>
+          <Select
+            onChange={e =>
+              setdisasterform({
+                ...disasterform,
+                type: e.target.value,
+              })
+            }
+          >
+            <option value="option1">Tsunami</option>
+            <option value="option2">Storm</option>
+            <option value="option3">Floods</option>
+            <option value="option3">Landslide</option>
           </Select>
         </FormControl>
         <FormControl id="Description of Disaster Site" isRequired>
@@ -120,9 +121,9 @@ export default function Wreckinfo(): JSX.Element {
             _placeholder={{ color: 'gray.500' }}
             type="text"
             onChange={e =>
-              setwreckform({
-                ...wreckform,
-                feature_type: e.target.value,
+              setdisasterform({
+                ...disasterform,
+                description: e.target.value,
               })
             }
           />
@@ -134,8 +135,8 @@ export default function Wreckinfo(): JSX.Element {
             _placeholder={{ color: 'gray.500' }}
             type="text"
             onChange={e =>
-              setwreckform({
-                ...wreckform,
+              setdisasterform({
+                ...disasterform,
                 latdec: e.target.value,
               })
             }
@@ -148,8 +149,8 @@ export default function Wreckinfo(): JSX.Element {
             _placeholder={{ color: 'gray.500' }}
             type="text"
             onChange={e =>
-              setwreckform({
-                ...wreckform,
+              setdisasterform({
+                ...disasterform,
                 londec: e.target.value,
               })
             }
@@ -176,7 +177,7 @@ export default function Wreckinfo(): JSX.Element {
               bg: 'red.500',
             }}
             onClick={() => {
-              setwreckform({
+              setdisasterform({
                 latdec: '',
                 londec: '',
                 depth: '',
