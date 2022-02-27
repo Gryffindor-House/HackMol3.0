@@ -16,6 +16,7 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { server_URL } from '../../config/urls';
+import VerticallyCenter from './load_modal';
 
 export default class Imagep extends Component {
   constructor(props) {
@@ -93,39 +94,29 @@ export default class Imagep extends Component {
               </Text>
             </Heading>
             <Text color={'gray.500'}>
-            This feature uses an ML model that takes input as a satellite image and classifies the damage done in the area if any damage is done or not.
+              This feature uses an ML model that takes input as a satellite
+              image and classifies the damage done in the area if any damage is
+              done or not.
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: 'column', sm: 'row' }}
             >
-              <Button
-                rounded={'full'}
-                size={'lg'}
-                fontWeight={'normal'}
-                px={6}
-                colorScheme={'red'}
-                bg={'red.400'}
-                color={'white'}
-                _hover={{ bg: 'red.500' }}
-                onClick={this.upload}
-              >
-                Predict
-              </Button>
+              <VerticallyCenter />
 
               <div className="form-group">
-              <Button
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
-                onClick={this.upload}
-              >
-                <input
-                  type="file"
-                  className="form-control"
-                  onChange={this.uploadSingleFile}
-                />
+                <Button
+                  rounded={'full'}
+                  size={'lg'}
+                  fontWeight={'normal'}
+                  px={6}
+                  onClick={this.upload}
+                >
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={this.uploadSingleFile}
+                  />
                 </Button>
               </div>
             </Stack>
